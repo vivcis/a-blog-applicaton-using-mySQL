@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>cece's food blog</title>
+      <link rel="stylesheet" type="text/css" href="../static/index.css">
+      <link rel="shortcut icon" type="images/png" href="../static/images/icon.jpeg"/>
+      <style>
+          *{
+              margin: 0;
+              padding: 0;
+          }
+          body {
+              background-color: rgb(180, 180, 180);
+              opacity: 0.9;
+              margin: auto;
+              padding: 10px;
+              width: 50%;
+              /*border: 2px solid red;*/
+              text-align: center;
+          }
+          h1{
+              font-family: "Lucida Console", "Courier New", monospace;
+              color: #e5e5e5;
+              padding-top: 2rem;
+          }
+          h2{
+            padding-top: 2rem;   
+          }
+          p{
+              padding-top: 1.5rem;
+              font-family: "Times New Roman", Times, serif;
+          }
+          div>a{
+              text-decoration: none;
+              cursor: pointer;
+          }
+      </style>
+  </head>
+  <body>
+        <h1>CeCe's Food Blog</h1>
+        <img src="../static/images/pilaf.jpeg">
+          <p>SIMPLE RECIPES MADE FOR<span style="color: darkred"><i>
+              real, actual, everyday life.</i></span></p>
+
+<!--        <form method = "POST">-->
+<!--            <textarea name="comment"></textarea>-->
+<!--            <div>-->
+<!--                <button type="submit">view</button>-->
+<!--                <button type="submit">add</button>-->
+<!--                <button type="submit">edit</button>-->
+<!--                <button type="submit">delete</button>-->
+<!--            </div>-->
+<!--        </form>-->
+          {{ range .}}
+          <h2><a href="/view-post/{{ .ID}}">{{ .Title }}</a></h2>
+          <p>By {{ .AuthorName}}</p>
+        <p>{{ .Ingredients}}</p>
+          <p>{{ .Content}}</p>
+       <div>
+        <a href="/add-post" id=>add-post</a>
+        <a href="/edit-post/{{ .ID}}">edit-post</a>
+        <a href="/delete-post/{{ .ID}}">delete-post</a>
+      </div>
+          {{ end }}
+  </body>
+</html>

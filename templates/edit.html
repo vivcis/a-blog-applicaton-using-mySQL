@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        form{
+            margin: 15px;
+            padding: 15px;
+            background-color: bisque;
+            color: blue;
+            align-items: center;
+        }
+        form>input{
+            background-color: #f8f8f8;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            padding: 10px;
+        }
+        textarea{
+            width: 60%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+        #btn{
+            background-color: red;
+            font-size: 1em;
+            padding: 2px;
+            border: 1px inset darkred;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<form action="/update-post" method="post">
+    <input type="text" name="id" value="{{ .ID}}" hidden>
+    <label>Title</label><br>
+    <input type="text" name="title" value="{{ .Title}}">
+    <br>
+    <br>
+    <label>Author's Name</label><br>
+    <input type="text" name="author" value="{{ .AuthorName}}">
+    <br>
+    <br>
+    <label>Content</label><br>
+    <textarea name="content">{{ .Content}}</textarea>
+    <br><br>
+    <input type="submit" id="btn">
+</form>
+</body>
+</html>
